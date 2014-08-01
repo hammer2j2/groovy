@@ -17,7 +17,7 @@ def pw = args[2]
 def server = args[3]
 def login = "${user}:${pw}"
 
-def jiraApiUrl = ${server} + '/rest/api/2/'
+def jiraApiUrl = "${server}" + '/rest/api/2/'
 // /rest/api/2/'
 // def jiraClient = new RESTClient(jiraApiUrl);
 // def serverInfo = jiraClient.get(path: 'serverInfo')
