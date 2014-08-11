@@ -21,7 +21,7 @@ def pw = args[2]
 def server = args[3]
  
 
-def project = "BDO" // jira project
+def project = "TEST" // jira project
 def basicMatch = "redirect" // search for redirect tickets based on summary line
 def testNameMatch = "test"  // files with test in the filename are test files
 
