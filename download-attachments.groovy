@@ -43,7 +43,7 @@ void process(HttpRequest httpRequest, HttpContext httpContext) {
 httpRequest.addHeader('Authorization', 'Basic ' + "${user}:${pw}".bytes.encodeBase64().toString()) } })
 
 
-// http.setProxy('connsvr.foo.com', 8080, null) 
+// http.setProxy('connect.foo.com', 8080, null) 
  
 def jiraJson = ""
 def jiraDlJson = ""
