@@ -80,6 +80,7 @@ http.get( path: 'search',
 jiraJson.issues.each {
     if ( it.fields.summary =~ /(?i)${matchExp}/ ) {
         println 'Looking for attachments to ' +it.key +' '+jiraUserUrl+'/'+it.key+' "'+ it.fields.summary +'"'
+        def key = it.key
         it.fields.attachment.each {
             println 'Checking '+ it.filename
             if ( it.filename =~ /(?i)${testNameMatch}/ && it.mimeType =~ /text.plain/ ) {
@@ -88,8 +89,12 @@ jiraJson.issues.each {
                 println "Going to get ${jiraDlUrl}${attpath}"
                 httpDl.get( path:  "${attpath}" ) { resp ->
                     def inputStream = new InputStreamReader(resp.getEntity().getContent())
-                    println "Text = "
-                    println inputStream.getText()
+                    def newFileName =  "${key}-test.txt"
+                    println "Writing test file: ${newFileName}"
+                    // println inputStream.getText()
+                    File file = new File("${newFileName}")
+                    file<<inputStream.getText()
+                println ""
                 }
             }
         }
