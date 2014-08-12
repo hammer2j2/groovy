@@ -92,8 +92,9 @@ jiraJson.issues.each {
                     def newFileName =  "${key}-test.txt"
                     println "Writing test file: ${newFileName}"
                     // println inputStream.getText()
-                    File file = new File("${newFileName}")
-                    file<<inputStream.getText()
+                    // File file = new File("${newFileName}")
+                    //file<<inputStream.getText()
+                    new File("${newFileName}").withWriter{ it << inputStream.getText() } 
                 println ""
                 }
             }
