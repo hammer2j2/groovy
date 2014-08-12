@@ -21,7 +21,7 @@ def pw = args[2]
 def server = args[3]
  
 
-def project = "BDO" // jira project
+def project = "TEST" // jira project
 def basicMatch = "redirect" // search for redirect tickets based on summary line
 def testNameMatch = "test"  // files with test in the filename are test files
 
@@ -43,7 +43,7 @@ void process(HttpRequest httpRequest, HttpContext httpContext) {
 httpRequest.addHeader('Authorization', 'Basic ' + "${user}:${pw}".bytes.encodeBase64().toString()) } })
 
 
-// http.setProxy('connsvr.foo.com', 8080, null) 
+// http.setProxy('connect.foo.com', 8080, null) 
  
 def jiraJson = ""
 def jiraDlJson = ""
